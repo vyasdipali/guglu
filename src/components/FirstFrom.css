@@ -1,0 +1,50 @@
+.all-des-div {
+  padding: 80px 113px 41px;
+}
+.address-div {
+  line-height: 1.75;
+}
+.all-Text-field-div {
+  display: flex;
+  gap: 20pc;
+}
+.input-des {
+  font: inherit;
+}
+.all-row-col-div {
+  display: flex;
+  flex-direction: column;
+}
+.p-tag-div {
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 1200px) {
+  .TextField-div {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .p-tag-div {
+    flex-wrap: wrap;
+  }
+  .textField {
+    width: "200px";
+  }
+}
+@media only screen and (max-width: 500px) {
+  .all-des-div {
+    padding: 0px 0px 0px;
+  }
+}
+.Radio-btn-div {
+margin-inline-end: 395px;
+}
+@media only screen and (max-width: 1200px) {
+  .Radio-btn-div {
+    margin-inline-end: 190px;
+  }
+}
