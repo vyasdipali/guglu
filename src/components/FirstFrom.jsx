@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "./FirstFrom.css";
-import { TextField, InputAdornment, IconButton, Stack } from "@mui/material";
+import {
+  TextField,
+  InputAdornment,
+  IconButton,
+  Stack,
+  RadioGroup,
+  FormControlLabel,
+  Radio,
+  Button,
+} from "@mui/material";
 import ClearIcon from "@mui/icons-material/Clear";
-// import { Clear, ArrowDropDownIcon } from '@mui/icons-material';y
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import { RadioGroup, FormControlLabel, Radio } from "@mui/material";
+import { ToggleButton, ToggleButtonGroup } from "@mui/material";
 
 const styles = {
   textField: {
@@ -15,7 +23,13 @@ const styles = {
     },
   },
 };
+
 const FirstFrom = () => {
+  const [answer, setAnswer] = useState("no");
+
+  const handleAnswerChange = (event, newAnswer) => {
+    setAnswer(newAnswer);
+  };
   return (
     <div>
       <div className="all-des-div">
@@ -165,7 +179,7 @@ const FirstFrom = () => {
         </div>
 
         <div className="p-tag-div">
-          <p>Listed By *</p>
+          <p style={{ marginTop: "25px" }}>Listed By *</p>
           <TextField
             id="outlined-textarea"
             placeholder="Select Listed By "
@@ -189,7 +203,196 @@ const FirstFrom = () => {
             }}
           />
         </div>
-        
+
+        <div className="p-tag-div">
+          <p>Price *</p>
+          <div className="btn-input-div">
+            <Button
+              variant="contained"
+              size="small"
+              className="no-focus-outline"
+            >
+              -
+            </Button>
+            <input className="input"></input>
+            <Button variant="contained" size="small">
+              +
+            </Button>
+          </div>
+        </div>
+
+        <div className="p-tag-div" style={{ marginTop: "25px" }}>
+          <p>Designation *</p>
+          <div className="toggle-div-btn ">
+            <ToggleButtonGroup
+              value={answer}
+              exclusive
+              onChange={handleAnswerChange}
+              aria-label="yes or no"
+            >
+              <ToggleButton
+                value="yes"
+                aria-label="yes"
+                sx={{ borderRadius: 30 }}
+              >
+                Residential
+              </ToggleButton>
+              <ToggleButton
+                value="no"
+                aria-label="no"
+                className="toggle-btn-div"
+                sx={{ borderRadius: 30 }}
+              >
+                Commercial
+              </ToggleButton>
+            </ToggleButtonGroup>
+          </div>
+        </div>
+
+        <div className="p-tag-div">
+          <p>Property Type *</p>
+          <TextField
+            id="outlined-textarea"
+            placeholder=" Select  Property Type *"
+            sx={styles.textField}
+            className="input-des"
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <Stack direction="row" spacing={1}>
+                    <IconButton
+                      type="button"
+                      sx={{ p: "10px" }}
+                      aria-label="Clear"
+                    >
+                      <ClearIcon sx={{ mt: "-6px" }} />
+                    </IconButton>
+                    <ArrowDropDownIcon />
+                  </Stack>
+                </InputAdornment>
+              ),
+            }}
+          />
+        </div>
+
+        <div className="p-tag-div">
+          <p>Ownership Type *</p>
+          <TextField
+            id="outlined-textarea"
+            placeholder=" Select Ownership Type "
+            sx={styles.textField}
+            className="input-des"
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <Stack direction="row" spacing={1}>
+                    <IconButton
+                      type="button"
+                      sx={{ p: "10px" }}
+                      aria-label="Clear"
+                    >
+                      <ClearIcon sx={{ mt: "-6px" }} />
+                    </IconButton>
+                    <ArrowDropDownIcon />
+                  </Stack>
+                </InputAdornment>
+              ),
+            }}
+          />
+        </div>
+
+        <div className="p-tag-div">
+          <p>Community Name.</p>
+          <TextField
+            id="outlined-textarea"
+            placeholder="Enter Community Name here "
+            sx={styles.textField}
+            className="input-des"
+          />
+        </div>
+
+        <div className="p-tag-div">
+          <p>Taxes</p>
+          <TextField
+            id="outlined-textarea"
+            placeholder="Enter Taxes here "
+            sx={styles.textField}
+            className="input-des"
+          />
+        </div>
+
+        <div className="p-tag-div">
+          <p>Tax Year</p>
+          <TextField
+            id="outlined-textarea"
+            placeholder="EnterTax Year here "
+            sx={styles.textField}
+            className="input-des"
+          />
+        </div>
+
+        <div className="p-tag-div">
+          <p>Assessment</p>
+          <TextField
+            id="outlined-textarea"
+            placeholder="Enter Assessment here "
+            sx={styles.textField}
+            className="input-des"
+          />
+        </div>
+
+        <div className="p-tag-div">
+          <p>Assessment Year</p>
+          <TextField
+            id="outlined-textarea"
+            placeholder="Enter Assessment Year here "
+            sx={styles.textField}
+            className="input-des"
+          />
+        </div>
+
+        <div className="p-tag-div">
+          <p>Special Designation</p>
+          <TextField
+            id="outlined-textarea"
+            placeholder="Enter Special Designation here "
+            sx={styles.textField}
+            className="input-des"
+          />
+        </div>
+
+        <div className="p-tag-div">
+          <p>Pool Type</p>
+          <TextField
+            id="outlined-textarea"
+            placeholder="Enter Pool Type here "
+            sx={styles.textField}
+            className="input-des"
+          />
+        </div>
+
+        <div className="address-div">
+          <h4>DESCRIPTION *</h4>
+        </div>
+        <div>
+          <div>
+            <h3>DESCRIPTION *</h3>
+          </div>
+
+          <div>
+            <TextField
+              multiline
+              rows={5}
+              maxRows={4}
+              style={{ width: "80%" }}
+            />
+          </div>
+        </div>
+
+        <div className="btn-input-div">
+         <button className="save-btn-div"><span className="span-div-btn">SAVE & NEXT</span> </button>
+         <button className="save-btn-div-two"><span className="span-div-btn">CANCEL</span> </button>
+        </div>
       </div>
     </div>
   );
